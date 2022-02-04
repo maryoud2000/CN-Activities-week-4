@@ -1,3 +1,23 @@
+// //Example:
+// let rosie = {
+//     _name: "Rosie",
+//     _thirst: 50,
+//     _isWiggling: false,
+//     _isHopping: false,
+//     get name(){
+//         return this._name;
+//     },
+//     get drink(){
+//         this._thirst -= 10;
+//         return this._thirst;
+//     }
+
+// }
+
+// console.log(rosie.name);
+// console.log(rosie.drink);
+
+////Example:
 // let storing = "Greeting";
 // let number = 3011;
 // let boolean = "True";
@@ -84,57 +104,66 @@
 // console.log(enemy1.health);
 // console.log(enemy1.reduceHealth(100));
 
-// //activity 1: car park
-// class Cars {
-//     constructor(staffId, reg, arrival, departure, hourlyCost, balance) {
-//         this._staffId = staffId;
-//         this._reg = reg;
-//         this._arrival = arrival;
-//         this._departure = departure;
-//         this._hourlyCost = hourlyCost;
-//         this._balance = balance;
-//     }
-   
+// //activity 1: car park/ subclass
+class Cars {
+    constructor(arrival, departure, hourlyCost) {
+        this._arrival = arrival;
+        this._departure = departure;
+        this._hourlyCost = hourlyCost;
+    }
     
-    
-//     calculateCost() {
-//         return (this._departure - this._arrival) * this._hourlyCost;
-//     }
-
-//     makePayment() {  
-//         if (this._balance >= this.calculateCost()){
-//             this._balance = this._balance - this.calculateCost();
-//             return `You have paid £${this.calculateCost()}, your remaining balance is £${this._balance}`;
-//         }
-//         else {
-//             return `You have no sufficient balance.`;
-//         }
-//     }
-    
-// }
-// const N001 = new Cars("N001", "AA11A1", 3, 8, 1.50, 80);
-// console.log(N001.makePayment());
-
-// Activity (2): Cyber Pet
-class Pet{
-    constructor(dog, cat, rabbit){
-        this._dog = dog;
-        this._cat = cat;
-        this._rabbit = rabbit;
-        this._play = false;
-        this._eat = false;
-        this._drink = false;
+    calculateCost() {
+        return (this._departure - this._arrival) * this._hourlyCost;
     }
 
-    petPlay() {
-        this._play = true;
-    }
+    makePayment() {  
+        if (this._balance >= this.calculateCost()){
+            this._balance = this._balance - this.calculateCost();
+            return `You have paid £${this.calculateCost()}, your remaining balance is £${this._balance}`;
+        }
+        else {
+            return `You have no sufficient balance.`;
+        }
+    }  
+}
 
-    petEat() {
-        this._eat = true;
-    }
-
-    petDrink() {
-        this._drink = true;
+class Staff extends Cars{
+    constructor(reg, staffId, balance){
+        super(arrival, departure, hourlyCost);
+        this._reg = reg;
+        this._staffId = staffId;
+        this._balance = balance;
+        
     }
 }
+
+const N001 = new Cars(3, 8, 1.50);
+const N002 = new Staff("AA11A1", "SD001", 80);
+console.log(N001);
+
+// // Activity (2): Cyber Pet
+// class Pet{
+//     constructor(dog, cat, rabbit){
+//         this._dog = dog;
+//         this._cat = cat;
+//         this._rabbit = rabbit;
+//         this._play = false;
+//         this._eat = false;
+//         this._drink = false;
+//     }
+
+//     petPlay() {
+//         this._play = true;
+//     }
+
+//     petEat() {
+//         this._eat = true;
+//     }
+
+//     petDrink() {
+//         this._drink = true;
+//     }
+// }
+
+////Activity (3): DOM! Convert the Cyber Pet to a DOM project.
+

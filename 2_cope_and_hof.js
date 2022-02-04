@@ -1,3 +1,5 @@
+////Scope_and_high order functions
+
 // //Function scope:
 // let stringLet = "let string";
 // var stringVar = "var string";
@@ -46,4 +48,39 @@
 // greet(1400, whichGreeting);
 
 
+// //Activity (1)
+// //Write a simple function which logs “Hello Code Nation” to the console.
+// const codeNation = () => {
+//     console.log(`Hello Code Nation`);
+// }
+// const howMany = () => {
+//     for (let i=0; i<5; i++){
+//         codeNation();
+//     }  
+// }
+// howMany();
 
+////Activity (2)
+////The array method .map
+
+
+
+// //Activity (3)
+// const add = (a,b) => {
+//     return a+b;
+// }
+// const subtract = (a,b) => {
+//     return a - b;
+// }
+// const multiply = (a,b) => {
+//     return a*b;
+// }
+// const divide = (a,b) => {
+//     return a/b;
+// }
+// const doMaths = (num1) => {
+//     return (num2, fn) => {
+//         return fn(num1, num2);
+//     }
+// }
+// console.log(doMaths(2)(1));
